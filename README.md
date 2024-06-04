@@ -1,4 +1,4 @@
 # Ping a server
 
 - backend: springboot
-- frontend: angular
+- frontend: angular [typescript]
