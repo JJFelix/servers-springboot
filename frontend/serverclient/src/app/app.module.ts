@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CommonModule } from "@angular/common";
 import { provideHttpClient, withFetch } from "@angular/common/http";
-
 @NgModule({
   declarations: [
     AppComponent
