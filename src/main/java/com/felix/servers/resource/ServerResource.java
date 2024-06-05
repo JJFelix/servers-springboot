@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -34,7 +35,8 @@ public class ServerResource {
     private final ServerServiceImplementation serverService;
 
     @GetMapping("/list")   
-    public ResponseEntity<Response> getServers(){
+    public ResponseEntity<Response> getServers() throws InterruptedException{
+        TimeUnit.SECONDS.sleep(3);
         return ResponseEntity.ok(
             Response.builder()
             .timeStamp(LocalDateTime.now())

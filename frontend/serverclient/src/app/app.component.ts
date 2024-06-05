@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ServerService } from './service/server.service';
-import { Observable, catchError, map, of, startWith } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, of, startWith } from 'rxjs';
 import { AppState } from './interface/app-state';
 import { CustomResponse } from './interface/custom-response';
 import { DataState } from './enum/data.state.enum';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { Status } from './enum/status.enum';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
   imports: [
     RouterOutlet, 
     AsyncPipe, 
-    JsonPipe
+    JsonPipe,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -22,6 +24,11 @@ export class AppComponent implements OnInit {
   title = 'serverclient';
 
   appState$: Observable<AppState<CustomResponse>>;
+  readonly DataState = DataState;
+  readonly Status = Status;
+  private filterSubject = new BehaviorSubject<string>('');
+  filterStatus$ = this.filterSubject.asObservable();
+
   constructor(private serverService: ServerService) {}
 
   ngOnInit(): void {

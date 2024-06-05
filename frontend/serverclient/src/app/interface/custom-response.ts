@@ -11,4 +11,5 @@ export interface CustomResponse{
         {
             servers?: Server[], server?: Server //? means optional
         };
+    imageUrl: string;
 }

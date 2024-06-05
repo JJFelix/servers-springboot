@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CommonModule } from "@angular/common";
-import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
+import { provideHttpClient, withFetch } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
   ],
   providers: [
     provideHttpClient(withFetch()),
+    
   ],
   bootstrap: [AppComponent]
 })
