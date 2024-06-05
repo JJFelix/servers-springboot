@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CommonModule } from "@angular/common";
 import { provideHttpClient, withFetch } from "@angular/common/http";
+import { NotifierModule } from "angular-notifier";
+
 @NgModule({
   declarations: [
     AppComponent
@@ -11,6 +13,7 @@ import { provideHttpClient, withFetch } from "@angular/common/http";
   imports: [
     BrowserModule,
     CommonModule,
+    NotifierModule,
   ],
   providers: [
     provideHttpClient(withFetch()),
